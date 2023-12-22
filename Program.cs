@@ -4,16 +4,22 @@ global using dotnet_rpg.Services.CharacterService;
 global using dotnet_rpg.Models;
 global using dotnet_rpg.Dtos.Character;
 global using dotnet_rpg.Data;
+using dotenv.net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+DotEnv.Load(); // Carrega as variáveis de ambiente do arquivo .env
 
+// Add services to the container.
 builder.Services.AddDbContext<DataContext>(options => 
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseNpgsql($"Host={Environment.GetEnvironmentVariable("HOST")};" +
+                    $"Port={Environment.GetEnvironmentVariable("PORT")};" +
+                    $"Database={Environment.GetEnvironmentVariable("DATABASE")};" +
+                    $"Username={Environment.GetEnvironmentVariable("USERNAME")};" +
+                    $"Password={Environment.GetEnvironmentVariable("PASSWORD")};" +
+                    "TrustServerCertificate=true")
 );
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
@@ -21,7 +27,6 @@ builder.Services.AddScoped<ICharacterService, CharacterService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -29,9 +34,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
