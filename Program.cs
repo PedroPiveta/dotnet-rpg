@@ -12,8 +12,8 @@ DotEnv.Load(); // Carrega as variáveis de ambiente do arquivo .env
 
 // Add services to the container.
 builder.Services.AddDbContext<DataContext>(options => 
-    options.UseNpgsql($"Host={Environment.GetEnvironmentVariable("HOST")};" +
-                    $"Port={Environment.GetEnvironmentVariable("PORT")};" +
+    options.UseNpgsql($"Host={Environment.GetEnvironmentVariable("DBHOST")};" +
+                    $"Port={Environment.GetEnvironmentVariable("DBPORT")};" +
                     $"Database={Environment.GetEnvironmentVariable("DATABASE")};" +
                     $"Username={Environment.GetEnvironmentVariable("USERNAME")};" +
                     $"Password={Environment.GetEnvironmentVariable("PASSWORD")};" +
