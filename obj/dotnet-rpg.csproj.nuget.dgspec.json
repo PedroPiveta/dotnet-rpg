@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/pedro/Documents/coding/dotnet-rpg/dotnet-rpg.csproj": {}
+    "/home/pedro/Documentos/coding/dotnet-rpg/dotnet-rpg.csproj": {}
   },
   "projects": {
-    "/home/pedro/Documents/coding/dotnet-rpg/dotnet-rpg.csproj": {
+    "/home/pedro/Documentos/coding/dotnet-rpg/dotnet-rpg.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/pedro/Documents/coding/dotnet-rpg/dotnet-rpg.csproj",
+        "projectUniqueName": "/home/pedro/Documentos/coding/dotnet-rpg/dotnet-rpg.csproj",
         "projectName": "dotnet-rpg",
-        "projectPath": "/home/pedro/Documents/coding/dotnet-rpg/dotnet-rpg.csproj",
+        "projectPath": "/home/pedro/Documentos/coding/dotnet-rpg/dotnet-rpg.csproj",
         "packagesPath": "/home/pedro/.nuget/packages/",
-        "outputPath": "/home/pedro/Documents/coding/dotnet-rpg/obj/",
+        "outputPath": "/home/pedro/Documentos/coding/dotnet-rpg/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/pedro/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Automapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.8, )"
@@ -66,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.108/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
         }
       }
     }
